@@ -30,33 +30,3 @@ for i in range(1,100):
   stockinfo = Symbol_record.objects.get_of_create(sPrice= webpprice, Name=your_list[i][1])
 
 
-
-
-
-
-
-
-"""""
-topics = ["Search","Social","MarketPlcae"]
-
-def add_topic():
-    t = Topic.objects.get_or_create(Topic_Name=random.choice(topics))[0]
-    t.save()
-    return t
-
-def populate(N = 3):
-    for entry in range(N):
-        top = add_topic()
-        fake_url = fakergen.url()
-        fake_date = fakergen.date()
-        fake_name = fakergen.company()
-
-        webpg = Webpage.objects.get_or_create(topics =top,url=fake_url,name= fake_name)[0]
-
-        acc_recs = AcessRecord.objects.get_or_create(name=webpg,date=fake_date)[0]
-
-if __name__ == '__main__':
-    print("Populating Script")
-    populate(20)
-    print("Populating complete")
-"""
